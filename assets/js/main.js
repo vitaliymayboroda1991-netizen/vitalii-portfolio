@@ -54,3 +54,18 @@
   var vids=document.querySelectorAll('video[autoplay]');
   if('IntersectionObserver' in window){var vo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){})}else e.target.pause()})});vids.forEach(function(v){vo.observe(v)})}
 })();
+// lightbox
+(function(){
+  var last;
+  function close(lb){lb.classList.remove('on');setTimeout(function(){lb.remove()},200);document.removeEventListener('keydown',lb._k);if(last)last.focus()}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-lightbox]'); if(!t)return; e.preventDefault(); last=t;
+    var en=document.documentElement.getAttribute('data-lang')==='en';
+    var lb=document.createElement('div'); lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true');
+    lb.innerHTML='<img alt=""><button type="button" aria-label="'+(en?'Close':'Закрити')+'">×</button>';
+    lb.querySelector('img').src=t.getAttribute('data-lightbox'); lb.querySelector('img').alt=en?'Award diploma':'Диплом нагороди';
+    lb.addEventListener('click',function(){close(lb)});
+    lb._k=function(ev){if(ev.key==='Escape')close(lb)}; document.addEventListener('keydown',lb._k);
+    document.body.appendChild(lb); requestAnimationFrame(function(){lb.classList.add('on')}); lb.querySelector('button').focus();
+  });
+})();
