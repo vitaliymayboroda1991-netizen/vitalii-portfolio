@@ -476,3 +476,6 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:14px}
   .btns{flex-wrap:wrap}
 }
 @media (max-width:600px){.tile-c h3{font-size:clamp(28px,8.4vw,34px)}}
+.cta .cta-mail{margin:18px 0 0;font:500 14.5px var(--fm);color:var(--muted);position:relative}
+.cta .cta-mail a{color:var(--text);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px;word-break:normal;display:inline-block}
+.t-mova .cta .cta-mail{color:rgba(255,255,255,.75)}.t-mova .cta .cta-mail a{color:#fff}
