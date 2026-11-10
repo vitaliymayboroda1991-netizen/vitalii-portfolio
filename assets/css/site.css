@@ -479,3 +479,8 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:14px}
 .cta .cta-mail{margin:18px 0 0;font:500 14.5px var(--fm);color:var(--muted);position:relative}
 .cta .cta-mail a{color:var(--text);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:4px;word-break:normal;display:inline-block}
 .t-mova .cta .cta-mail{color:rgba(255,255,255,.75)}.t-mova .cta .cta-mail a{color:#fff}
+.tile-act{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.tile .stretch::after{content:"";position:absolute;left:0;right:0;bottom:0;top:-1200px;z-index:1}
+.tile-act .btn{position:relative;z-index:2}
+.btn-sm{padding:10px 16px;font-size:14px}
+.t-mova .btn-p .ic-gp,.btn svg{flex:none}
