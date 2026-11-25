@@ -63,7 +63,9 @@
     var en=document.documentElement.getAttribute('data-lang')==='en';
     var lb=document.createElement('div'); lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true');
     lb.innerHTML='<img alt=""><button type="button" aria-label="'+(en?'Close':'Закрити')+'">×</button>';
-    lb.querySelector('img').src=t.getAttribute('data-lightbox'); lb.querySelector('img').alt=en?'Award diploma':'Диплом нагороди';
+    lb.querySelector('img').src=t.getAttribute('data-lightbox');
+    var alt=en?(t.getAttribute('data-lightbox-alt-en')||'Award diploma'):(t.getAttribute('data-lightbox-alt-uk')||'Диплом нагороди');
+    lb.querySelector('img').alt=alt;
     lb.addEventListener('click',function(){close(lb)});
     lb._k=function(ev){if(ev.key==='Escape')close(lb)}; document.addEventListener('keydown',lb._k);
     document.body.appendChild(lb); requestAnimationFrame(function(){lb.classList.add('on')}); lb.querySelector('button').focus();
